@@ -1,6 +1,7 @@
 #!/bin/bash
 
 INSTANCE="webdriver"
+PORT=4444
 COMMAND=$1
 
 build() {
@@ -13,7 +14,7 @@ run() {
     docker run \
         -d \
         --name $INSTANCE \
-        -p 4444:4444 \
+        -p $PORT:$PORT \
         $INSTANCE
 }
 
@@ -23,7 +24,7 @@ dev() {
     docker run \
         -it \
         --name $INSTANCE \
-        -p 4444:4444 \
+        -p $PORT:$PORT \
         $INSTANCE \
         /bin/bash
 }
